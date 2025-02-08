@@ -186,9 +186,6 @@ body {
 }
 
 @media screen and (min-width: 1024px) {
-  main {
-    display: flex;
-  }
   .card__main {
     margin-top: 1rem;
     flex-direction: column;
