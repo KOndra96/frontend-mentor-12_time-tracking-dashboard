@@ -225,22 +225,22 @@ body {
     }
 }
 
-@media screen and (min-width: 1024px) {
+// @media screen and (min-width: 1024px) {
 
-    main {
-        // display: flex;
-        // align-items:;
-    }
+//     main {
+//         // display: flex;
+//         // align-items:;
+//     }
 
-    .card__main {
-        margin-top: 1rem;
-        flex-direction: column;
-    }
+//     .card__main {
+//         margin-top: 1rem;
+//         flex-direction: column;
+//     }
 
-    #cards {
-        // grid-template-columns: 1fr 1fr 1fr;
-    }
-}
+//     #cards {
+//         // grid-template-columns: 1fr 1fr 1fr;
+//     }
+// }
 
 .attribution {
     color: var(--color-pale-blue, hsl(236, 100%, 87%));

@@ -185,12 +185,6 @@ body {
   opacity: 100%;
 }
 
-@media screen and (min-width: 1024px) {
-  .card__main {
-    margin-top: 1rem;
-    flex-direction: column;
-  }
-}
 .attribution {
   color: var(--color-pale-blue, hsl(236, 100%, 87%));
   margin-top: 1rem;
