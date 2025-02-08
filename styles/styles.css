@@ -1,0 +1,105 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+:root {
+  --color-blue: hsl(246, 80%, 60%);
+  --color-work-red: hsl(15, 100%, 70%);
+  --color-play-blue: hsl(195, 74%, 62%);
+  --color-study-red: hsl(348, 100%, 68%);
+  --color-exercise-green: hsl(145, 58%, 55%);
+  --color-social-violet: hsl(264, 64%, 52%);
+  --color-self-care-orange: hsl(43, 84%, 65%);
+  --color-very-dark-blue: hsl(226, 43%, 10%);
+  --color-dark-blue: hsl(235, 46%, 20%);
+  --color-desaturated-blue: hsl(235, 45%, 61%);
+  --color-pale-blue: hsl(236, 100%, 87%);
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.125rem;
+  font-family: "Rubik", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  background-color: var(--color-very-dark-blue, hsl(226, 43%, 10%));
+}
+
+.grid-container {
+  display: grid;
+}
+
+.card {
+  border-radius: 1rem;
+  padding: 2rem;
+  background-color: var(--color-dark-blue, hsl(235, 46%, 20%));
+}
+
+.card__cap {
+  width: 100%;
+  transform: translateY(1rem);
+  z-index: -1;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  padding-top: 4rem;
+}
+
+.card__work {
+  background-image: url(../images/icon-work.svg);
+  background-repeat: no-repeat;
+  background-position-x: 95%;
+  background-color: var(--color-work-red, hsl(15, 100%, 70%));
+}
+
+.card__play {
+  background-image: url(../images/icon-play.svg);
+  background-repeat: no-repeat;
+  background-position-x: 95%;
+  background-color: var(--color-play-blue, hsl(195, 74%, 62%));
+}
+
+.card__study {
+  background-image: url(../images/icon-study.svg);
+  background-repeat: no-repeat;
+  background-position-x: 95%;
+  background-color: var(--color-study-red, hsl(348, 100%, 68%));
+}
+
+.card__exercise {
+  background-image: url(../images/icon-exercise.svg);
+  background-repeat: no-repeat;
+  background-position-x: 95%;
+  background-color: var(--color-exercise-green, hsl(145, 58%, 55%));
+}
+
+.card__social {
+  background-image: url(../images/icon-social.svg);
+  background-repeat: no-repeat;
+  background-position-x: 95%;
+  background-color: var(--color-social-violet, hsl(264, 64%, 52%));
+}
+
+.card__self-care {
+  background-image: url(../images/icon-self-care.svg);
+  background-repeat: no-repeat;
+  background-position-x: 95%;
+  background-color: var(--color-self-care-orange, hsl(43, 84%, 65%));
+}
+
+.attribution {
+  color: var(--color-pale-blue, hsl(236, 100%, 87%));
+  margin-top: 1rem;
+  font-size: 0.6875rem;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}/*# sourceMappingURL=styles.css.map */
