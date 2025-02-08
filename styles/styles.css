@@ -19,6 +19,10 @@
   --color-white: hsl(0, 0%, 100%);
 }
 
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
 body {
   min-height: 100vh;
   display: flex;

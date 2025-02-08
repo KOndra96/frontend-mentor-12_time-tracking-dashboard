@@ -27,6 +27,10 @@ $padding-card-cap: 4rem;
 $padding-card-floor-top: 2.5rem;
 $padding-card-floor-bottom: 1.5rem;
 
+html {
+    -webkit-tap-highlight-color: transparent;
+}
+
 body {
     min-height: 100vh;
 
