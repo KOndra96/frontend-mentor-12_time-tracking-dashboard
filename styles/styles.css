@@ -16,6 +16,7 @@
   --color-dark-blue: hsl(235, 46%, 20%);
   --color-desaturated-blue: hsl(235, 45%, 61%);
   --color-pale-blue: hsl(236, 100%, 87%);
+  --color-white: hsl(0, 0%, 100%);
 }
 
 body {
@@ -30,6 +31,10 @@ body {
   font-weight: 400;
   font-style: normal;
   background-color: var(--color-very-dark-blue, hsl(226, 43%, 10%));
+}
+
+.flex-container {
+  display: flex;
 }
 
 .grid-container {
@@ -49,6 +54,15 @@ body {
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
   padding-top: 4rem;
+}
+
+.card__floor {
+  width: 100%;
+  transform: translateY(-1rem);
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  padding-bottom: 1.5rem;
+  padding-top: 2.5rem;
 }
 
 .card__work {
@@ -91,6 +105,35 @@ body {
   background-repeat: no-repeat;
   background-position-x: 95%;
   background-color: var(--color-self-care-orange, hsl(43, 84%, 65%));
+}
+
+.card__main {
+  z-index: 1;
+  background-color: var(--color-blue, hsl(246, 80%, 60%));
+  color: var(--color-white, hsl(0, 0%, 100%));
+}
+
+.choices {
+  justify-content: space-around;
+  background-color: var(--color-dark-blue, hsl(235, 46%, 20%));
+}
+
+.choice {
+  text-decoration: none;
+  transition: 250ms ease color, 250ms ease opacity;
+  color: var(--color-desaturated-blue, hsl(235, 45%, 61%));
+}
+.choice:hover, .choice:focus {
+  color: var(--color-white, hsl(0, 0%, 100%));
+  opacity: 80%;
+}
+
+.choice--active {
+  color: var(--color-white, hsl(0, 0%, 100%));
+}
+.choice--active:hover, .choice--active:focus {
+  color: var(--color-white, hsl(0, 0%, 100%));
+  opacity: 100%;
 }
 
 .attribution {
