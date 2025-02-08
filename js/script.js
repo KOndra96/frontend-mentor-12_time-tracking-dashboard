@@ -1,22 +1,33 @@
 const cardsContainer = document.getElementById('cards');
 
-fetch('../data.json')
-    .then(response => response.json())
-    .then(data => {
-        data.forEach(activity => {
-            console.log(activity);
+const choiceButtons = document.querySelectorAll('.choice');
 
-            let title = activity['title'];
-            let timeActual = activity['timeframes']['weekly']['current'];
-            let timePrevious = activity['timeframes']['weekly']['previous'];
+choiceButtons.forEach(chosenButton => {
+    chosenButton.addEventListener('click', function (event) {
+        event.preventDefault();
 
-            console.log(title + timeActual + timePrevious);
+        if (chosenButton.classList.contains('choice--active')) {
+            return 0;
+        }
 
-            createCard(title, timeActual, timePrevious);
-        });
+        changeActiveStateTo(chosenButton);
+
+        if (chosenButton.classList.contains('choice__daily')) {
+            refreshCards('daily');
+        }
+        else if (chosenButton.classList.contains('choice__weekly')) {
+            refreshCards('weekly');
+        }
+        else if (chosenButton.classList.contains('choice__monthly')) { 
+            refreshCards('monthly');
+        }
     });
+});
 
-function createCard(title, timeActual, timePrevious, timeframe='weekly') {
+createAllCards();
+
+// functions
+function createCard(title, timeActual, timePrevious, timeframe = 'weekly') {
     createCardCap(title);
 
     let newCard = document.createElement('div');
@@ -30,10 +41,10 @@ function createCard(title, timeActual, timePrevious, timeframe='weekly') {
           <img src="./images/icon-ellipsis.svg" alt="Ellipsis" class="card__ellipsis-icon">
         </div>
         <div class="card__body">
-          <span class="card__activity-actual-time">${timeActual}</span>
+          <span class="card__activity-actual-time">${timeActual}hrs</span>
           <div class="card__activity-previous">
-            <span class="card__activity-previous-name">${timeframeName} -</span>
-            <span class="card__activity-previous-time">${timePrevious}</span>
+            <span class="card__activity-previous-name">${timeframeName}</span> -
+            <span class="card__activity-previous-time">${timePrevious}</span>hrs
           </div>
         </div>
     `;
@@ -41,6 +52,33 @@ function createCard(title, timeActual, timePrevious, timeframe='weekly') {
     newCard.innerHTML = newCardContent;
 
     cardsContainer.appendChild(newCard);
+}
+
+function removeAllCards() {
+    cardsContainer.innerHTML = '';
+}
+
+function createAllCards(timeframe = 'weekly') {
+    fetch('../data.json')
+    .then(response => response.json())
+    .then(data => {
+        data.forEach(activity => {
+            console.log(activity);
+
+            let title = activity['title'];
+            let timeActual = activity['timeframes'][timeframe]['current'];
+            let timePrevious = activity['timeframes'][timeframe]['previous'];
+
+            console.log(title + timeActual + timePrevious);
+
+            createCard(title, timeActual, timePrevious, timeframe);
+        });
+    });
+}
+
+function refreshCards(timeframe = 'weekly') {
+    removeAllCards();
+    createAllCards(timeframe);
 }
 
 function createCardCap(title) {
@@ -54,11 +92,11 @@ function createCardCap(title) {
 
 function determineTimeframeName(timeframe) {
 
-    if(timeframe === 'daily')
+    if (timeframe === 'daily')
         return 'Yesterday';
-    if(timeframe === 'weekly')
+    if (timeframe === 'weekly')
         return 'Last Week';
-    if(timeframe === 'monthly')
+    if (timeframe === 'monthly')
         return 'Last Month';
 
     else return 'Last Period';
@@ -68,4 +106,15 @@ function formatTitle(title) {
     let titleLower = title.toLowerCase();
     titleFormatted = titleLower.replace(/ /g, "-");
     return titleFormatted;
+}
+
+function changeActiveStateTo(choice) {
+    choiceButtons.forEach(chosen => {
+        if (chosen.classList.contains('choice--active')) {
+            chosen.classList.remove('choice--active');
+        }
+    });
+
+
+    choice.classList.add('choice--active');
 }

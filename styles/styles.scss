@@ -64,6 +64,7 @@ body {
     width: 100%;
 
     transform: translateY(1rem);
+
     z-index: -1;
 
     border-top-left-radius: 1rem;
@@ -82,6 +83,20 @@ body {
 
     padding-bottom: $padding-card-floor-bottom;
     padding-top: $padding-card-floor-top;
+}
+
+.card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card__body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 0.5rem;
 }
 
 .card__work {
@@ -127,9 +142,56 @@ body {
 }
 
 .card__main {
+    display: flex;
+    align-items: center;
+
     z-index: 1;
     background-color: var(--color-blue, hsl(246, 80%, 60%));
+
+    img {
+        max-width: 4rem;
+
+        margin-right: 1rem;
+
+        border-radius: 50%;
+        border: 3px solid var(--color-white, hsl(0, 0%, 100%));
+    }
+
+    p {
+        margin: 0;
+        margin-bottom: 0.25rem;
+
+        font-size: 0.9rem;
+
+        color: var(--color-pale-blue, hsl(236, 100%, 87%));
+    }
+
+    h2 {
+        margin: 0;
+
+        font-weight: 400;
+        font-size: 1.25rem;
+        
+        color: var(--color-white, hsl(0, 0%, 100%));
+    }
+}
+
+.card__activity-name {
+    font-weight: 0.9rem;
     color: var(--color-white, hsl(0, 0%, 100%));
+}
+
+.card__activity-actual-time {    
+    font-size: 1.5rem;
+    font-weight: 300;
+
+    color: var(--color-white, hsl(0, 0%, 100%));
+}
+
+.card__activity-previous {
+    font-weight: 300;
+    font-size: 0.9rem;
+    color: var(--color-pale-blue, hsl(236, 100%, 87%));
 }
 
 .choices {
@@ -160,6 +222,23 @@ body {
     &:focus {
         color: var(--color-white, hsl(0, 0%, 100%));
         opacity: 100%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+
+    main {
+        display: flex;
+        // align-items:;
+    }
+
+    .card__main {
+        margin-top: 1rem;
+        flex-direction: column;
+    }
+
+    #cards {
+        // grid-template-columns: 1fr 1fr 1fr;
     }
 }
 
